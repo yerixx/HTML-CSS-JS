@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./game.css" />
+    <script defer src="./game.js"></script>
+    <title>game</title>
+  </head>
+  <body>
+    <div class="gameContents">
+      <div class="gameTitle">
+        <span>GAME ZONE </span>
+        <span> | TODAY CHOICE</span>
+      </div>
+      <div class="gameContent">
+        <div class="gameContentTitle">
+          <div>🐰끝말잇기 게임🐰</div>
+          <div>제시어 : <span id="myword">헬로키티</span></div>
+        </div>
+        <div class="gameContentInput">
+          <form action="http://127.0.0.1:5500" method="get">
+            <label for="word">
+              <input type="text" name="word" id="word" />
+            </label>
+            <input type="button" value="입력" />
+          </form>
+          <div class="result">🎈 두구두구 🎈</div>
+        </div>
+      </div>
+      <div class="gameContent">
+        <div class="gameContentTitle">
+          <div>🌟LOTTO🌟</div>
+          <div id="lottoNum">인생 역전 로또 뽑기</div>
+          <button>뽑기</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

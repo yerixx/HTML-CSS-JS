@@ -1,0 +1,183 @@
+// reset
+@import "./reset.scss";
+
+// variable
+$theme-color: #55b2e4;
+$point-color: #fa822e;
+html {
+  overflow: hidden;
+}
+
+.background {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  .outBox {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1500px;
+    height: 860px;
+    padding-right: 280px;
+    padding-bottom: 30px;
+    background: url("./img/home.gif") center/cover no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    .wrapper {
+      display: flex;
+      .profile {
+        width: 300px;
+        height: 100%;
+        gap: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .profileToday {
+          text-align: center;
+          b {
+            color: $point-color;
+          }
+        }
+        .profileBody {
+          .profileTop {
+            .profileFeel {
+              form {
+                select {
+                  cursor: pointer;
+                  width: 250px;
+                  height: 30px;
+                  text-align: center;
+                  font-size: 1rem;
+                }
+              }
+            }
+            .profileimg {
+              margin-top: 20px;
+              width: 250px;
+              img {
+                width: 100%;
+                object-fit: cover;
+              }
+            }
+            .profileMessage {
+              padding: 30px 20px 20px 0;
+            }
+          }
+          .profileCenter {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 88%;
+            margin-top: 150px;
+            border-bottom: 1px solid #999;
+            cursor: pointer;
+            & > div:nth-child(1) {
+              span > i {
+                color: $theme-color;
+              }
+            }
+            & > div:nth-child(2) {
+              height: 100%;
+              display: flex;
+              i {
+                font-size: 1.3rem;
+                color: #999;
+              }
+            }
+          }
+          .profileBottom {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 20px 6px;
+            font-size: 1.2rem;
+            & > span:nth-child(1) {
+              color: #999;
+              b {
+                color: $theme-color;
+              }
+            }
+            & > span:nth-child(2) {
+              color: $point-color;
+            }
+          }
+        }
+      }
+      .contents {
+        width: 750px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        .contentTop {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 30px;
+
+          .contentsTitle {
+            display: flex;
+            gap: 50px;
+            font-size: 1.4rem;
+            span:nth-child(2) {
+              background: #bbb;
+              color: #fff;
+              padding: 3px 6px;
+              font-size: 0.9rem;
+              border-radius: 6px;
+              margin-bottom: 2px;
+              cursor: pointer;
+            }
+          }
+          .setting {
+            cursor: pointer;
+            color: $point-color;
+          }
+        }
+
+        .contentFrame {
+          display: flex;
+          width: 700px;
+          height: 100%;
+          iframe {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+
+      .navigation {
+        position: absolute;
+        top: 160px;
+        right: 216px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+
+        .navItem {
+          text-align: center;
+          background: rgba($color: #ffffff, $alpha: 0.7);
+          border: 1px solid $theme-color;
+          border-radius: 0 6px 6px 0;
+          padding: 12px 16px;
+          transition: all 0.3s;
+          &:hover {
+            background: #fff;
+          }
+          &.active {
+            background: #fff;
+            color: $theme-color;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

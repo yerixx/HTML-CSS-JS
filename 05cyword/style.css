@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  overflow: hidden;
+}
+
+.background {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.background .outBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1500px;
+  height: 860px;
+  padding-right: 280px;
+  padding-bottom: 30px;
+  background: url("./img/home.gif") center/cover no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.background .outBox .wrapper {
+  display: flex;
+}
+.background .outBox .wrapper .profile {
+  width: 300px;
+  height: 100%;
+  gap: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.background .outBox .wrapper .profile .profileToday {
+  text-align: center;
+}
+.background .outBox .wrapper .profile .profileToday b {
+  color: #fa822e;
+}
+.background .outBox .wrapper .profile .profileBody .profileTop .profileFeel form select {
+  cursor: pointer;
+  width: 250px;
+  height: 30px;
+  text-align: center;
+  font-size: 1rem;
+}
+.background .outBox .wrapper .profile .profileBody .profileTop .profileimg {
+  margin-top: 20px;
+  width: 250px;
+}
+.background .outBox .wrapper .profile .profileBody .profileTop .profileimg img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.background .outBox .wrapper .profile .profileBody .profileTop .profileMessage {
+  padding: 30px 20px 20px 0;
+}
+.background .outBox .wrapper .profile .profileBody .profileCenter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 88%;
+  margin-top: 150px;
+  border-bottom: 1px solid #999;
+  cursor: pointer;
+}
+.background .outBox .wrapper .profile .profileBody .profileCenter > div:nth-child(1) span > i {
+  color: #55b2e4;
+}
+.background .outBox .wrapper .profile .profileBody .profileCenter > div:nth-child(2) {
+  height: 100%;
+  display: flex;
+}
+.background .outBox .wrapper .profile .profileBody .profileCenter > div:nth-child(2) i {
+  font-size: 1.3rem;
+  color: #999;
+}
+.background .outBox .wrapper .profile .profileBody .profileBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 6px;
+  font-size: 1.2rem;
+}
+.background .outBox .wrapper .profile .profileBody .profileBottom > span:nth-child(1) {
+  color: #999;
+}
+.background .outBox .wrapper .profile .profileBody .profileBottom > span:nth-child(1) b {
+  color: #55b2e4;
+}
+.background .outBox .wrapper .profile .profileBody .profileBottom > span:nth-child(2) {
+  color: #fa822e;
+}
+.background .outBox .wrapper .contents {
+  width: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.background .outBox .wrapper .contents .contentTop {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+.background .outBox .wrapper .contents .contentTop .contentsTitle {
+  display: flex;
+  gap: 50px;
+  font-size: 1.4rem;
+}
+.background .outBox .wrapper .contents .contentTop .contentsTitle span:nth-child(2) {
+  background: #bbb;
+  color: #fff;
+  padding: 3px 6px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+.background .outBox .wrapper .contents .contentTop .setting {
+  cursor: pointer;
+  color: #fa822e;
+}
+.background .outBox .wrapper .contents .contentFrame {
+  display: flex;
+  width: 700px;
+  height: 100%;
+}
+.background .outBox .wrapper .contents .contentFrame iframe {
+  width: 100%;
+  height: 100%;
+}
+.background .outBox .wrapper .navigation {
+  position: absolute;
+  top: 160px;
+  right: 216px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+.background .outBox .wrapper .navigation .navItem {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #55b2e4;
+  border-radius: 0 6px 6px 0;
+  padding: 12px 16px;
+  transition: all 0.3s;
+}
+.background .outBox .wrapper .navigation .navItem:hover {
+  background: #fff;
+}
+.background .outBox .wrapper .navigation .navItem.active {
+  background: #fff;
+  color: #55b2e4;
+  font-weight: bold;
+}/*# sourceMappingURL=style.css.map */

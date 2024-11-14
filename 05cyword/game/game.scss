@@ -1,0 +1,287 @@
+// reset
+@import "./reset.scss";
+
+// variable
+$theme-color: #55b2e4;
+$point-color: #fa822e;
+
+//mixin
+@mixin Title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  .title {
+    font: bold 20px/1 "noto sans kt";
+    color: $main-color;
+  }
+  .subtitle {
+    font: normal 18px/1 "noto sans kt";
+  }
+}
+
+/* common */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.gameContents {
+  padding: 30px 60px 50px 40px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .gameTitle {
+    display: flex;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #000;
+    span:first-child {
+      color: $theme-color;
+      font: bold 20px/1 "noto sans kr";
+    }
+    span:last-child {
+      font: normal 18px/1 "noto sans kr";
+    }
+  }
+  .gameContent {
+    margin-top: 20px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 0;
+    border-radius: 8px;
+    &:nth-of-type(2) {
+      background: url("./img/game1.jpg") center/cover no-repeat;
+    }
+    &:nth-of-type(3) {
+      background: url("./img/lotto.jpg") center/cover no-repeat;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($color: #000000, $alpha: 0.7);
+      border-radius: 8px;
+      box-shadow: 1px 1px 5px #999;
+    }
+    .gameContentTitle {
+      z-index: 1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      color: #fff;
+      div:first-child {
+        font-weight: bold;
+        font-size: 1.6rem;
+      }
+      #lottoNum {
+        color: $point-color;
+        font-weight: bold;
+        font-size: 1.4rem;
+        background: #fff;
+        padding: 10px 60px;
+        border-radius: 8px;
+      }
+      button {
+        width: 50px;
+        padding: 6px 4px;
+        border: none;
+        background: $point-color;
+        color: #fff;
+        border-radius: 8px;
+      }
+    }
+    .gameContentInput {
+      margin-top: 20px;
+      label {
+        input[type="text"] {
+          position: relative;
+          z-index: 1;
+          width: 250px;
+          border: none;
+          background: none;
+          border-bottom: 1px solid #fff;
+          font-size: 1.2rem;
+          text-align: center;
+          color: #fff;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      input[type="button"] {
+        position: relative;
+        z-index: 1;
+        width: 50px;
+        padding: 6px 4px;
+        border: none;
+        border-radius: 4px;
+        background: #fff;
+        cursor: pointer;
+      }
+      .result {
+        margin-top: 18px;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        padding: 10px 14px;
+        border-radius: 8px;
+        color: #000;
+        font-size: 1.2rem;
+        font-weight: bold;
+        background: rgba($color: #ffffff, $alpha: 0.9);
+      }
+    }
+  }
+}
+
+/* wrapper */
+// .wrapper {
+//   width: 100%;
+//   height: 100%;
+//   padding: 30px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   // wrapper 태그 안에 div 중 두번째 div에 이미지를 넣겠다
+//   & > div:nth-child(2) {
+//     width: 100%;
+//     height: 250px;
+//     // 이미지 위치 참고!!
+//     background: url("./contents/bg_1.jpg") center -90px / cover no-repeat;
+//     position: relative;
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       top: 0;
+//       width: 100%;
+//       height: 100%;
+//       background: rgba(0, 0, 0, 0.5);
+//     }
+//   }
+//   & > div:nth-child(3) {
+//     width: 100%;
+//     height: 250px;
+//     // 이미지 위치 참고!!
+//     background: url("./contents/bg_2.jpg") center -90px / cover no-repeat;
+//     position: relative;
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       top: 0;
+//       width: 100%;
+//       height: 100%;
+//       background: rgba(0, 0, 0, 0.5);
+//     }
+//   }
+
+//   .wrapper_header {
+//     width: 100%;
+//     height: 32px;
+//     .content_title {
+//       display: flex;
+//       gap: 10px;
+//       align-items: center;
+//       .title {
+//         color: $theme-color;
+//         font: bold 16px/1 "arial";
+//       }
+//       .subtitle {
+//         font-size: 14px;
+//       }
+//     }
+//     .divideLine {
+//       width: 100%;
+//       border-top: 1px solid gray;
+//       margin: 8px 0;
+//     }
+//   }
+//   .game_container {
+//     width: 100%;
+//     height: 158px;
+//     border: 1px solid gray;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     align-items: center;
+//     border-radius: 15px;
+//     padding: 20px 15px;
+//     box-shadow: 0 0 8px gray;
+//     overflow: hidden;
+//     position: relative;
+//     img {
+//       // 이미지 앞으로 나오게
+//       position: relative;
+//     }
+//     .game_title {
+//       // title 앞으로 나오게
+//       position: relative;
+//       color: #fff;
+//       font: 700 16px/1 "arial";
+//     }
+//     .game_subtitle {
+//       position: relative;
+//       color: #fff;
+//       font: normal 14px/1 "arial";
+//     }
+//     .word_text {
+//       position: relative;
+//       input[type="text"] {
+//         border: none;
+//         background: transparent;
+//         padding: 0 0 2px 8px;
+//         border-bottom: 1px solid #ddd;
+//         color: #fff;
+//         &::placeholder {
+//           opacity: 1;
+//           color: #ddd;
+//           transition: opacity 0.3s;
+//         }
+//         &:focus {
+//           outline: none;
+//           &::placeholder {
+//             opacity: 0;
+//           }
+//         }
+//       }
+//       input[type="submit"] {
+//         @include buttonType;
+//       }
+//     }
+//     .word_result {
+//       position: relative;
+//       color: $point-color;
+//       font-weight: 800;
+//     }
+//     .game_lotto_number {
+//       position: relative;
+//       background: $point-color;
+//       padding: 2px 8px;
+//       margin: 5px 0;
+//       border-radius: 8px;
+//       font-size: 14px;
+//       span {
+//         color: #fff;
+//         text-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.6);
+//       }
+//     }
+//     .wrapper_lotto_btn {
+//       position: relative;
+//       @include buttonType();
+//     }
+//   }
+// }

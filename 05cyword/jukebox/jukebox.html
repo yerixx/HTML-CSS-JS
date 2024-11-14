@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fontawsome -->
+    <script
+      src="https://kit.fontawesome.com/44357f99e0.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="./jukebox.js"></script>
+    <link rel="stylesheet" href="./jukebox.css" />
+    <title>jukebox</title>
+  </head>
+  <body>
+    <div class="jukeboxContainer">
+      <div class="jukeboxtop">
+        <div class="jukeboxTitle">
+          <span class="title">싸이월드 BGM</span>
+          <span class="subtitle">TOP3</span>
+        </div>
+        <div class="divideLine"></div>
+        <div class="jukeboxAlbums">
+          <div class="jukeboxAlbum">
+            <ul>
+              <li>
+                <a
+                  href="https://www.melon.com/album/music.htm?albumId=706753"
+                  target="_blank"
+                >
+                  <img
+                    src="https://image.bugsm.co.kr/album/images/500/2039/203981.jpg"
+                    alt="youandi"
+                  />
+                </a>
+              </li>
+              <li>You And I</li>
+              <li>박봄</li>
+            </ul>
+          </div>
+          <div class="jukeboxAlbum">
+            <ul>
+              <li>
+                <a
+                  href="https://www.melon.com/album/detail.htm?albumId=385653"
+                  target="_blank"
+                >
+                  <img
+                    src="https://image.bugsm.co.kr/album/images/500/1571/157124.jpg"
+                    alt="energy"
+                  />
+                </a>
+              </li>
+              <li>에너지</li>
+              <li>마이티마우스</li>
+            </ul>
+          </div>
+          <div class="jukeboxAlbum">
+            <ul>
+              <li>
+                <a
+                  href="https://www.melon.com/album/detail.htm?albumId=362984"
+                  target="_blank"
+                >
+                  <img
+                    src="https://image.bugsm.co.kr/album/images/500/1003/100348.jpg"
+                    alt="love"
+                  />
+                </a>
+              </li>
+              <li>Love</li>
+              <li>브라운아이드걸즈</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="jukeboxbottom">
+        <div class="jukeboxTitle">
+          <span class="title">BGM Platlist</span>
+          <span class="subtitle">오늘의 추천곡~</span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <input
+                  type="checkbox"
+                  name="checkAll"
+                  id="checkAll"
+                  onclick="selectAll(this)"
+                />
+              </th>
+              <th class="albumNum">번호</th>
+              <th>곡명</th>
+              <th class="albumArtist">아티스트</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input type="checkbox" name="check01" id="check01" />
+              </td>
+              <td class="albumNum">1</td>
+              <td class="albuumSong">
+                <i class="fa-solid fa-caret-right"></i>
+                <i class="fa-solid fa-pause"></i>
+                <span>눈의꽃</span>
+                <audio src="./content/flower.mp4"></audio>
+              </td>
+              <td class="albumArtist">박효신</td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" name="check02" id="check02" />
+              </td>
+              <td class="albumNum">2</td>
+              <td class="albuumSong">
+                <i class="fa-solid fa-caret-right"></i>
+                <i class="fa-solid fa-pause"></i>
+                <span>사랑스러워</span>
+                <audio src="./content/love.mp4"></audio>
+              </td>
+              <td class="albumArtist">김종국</td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" name="check03" id="check03" />
+              </td>
+              <td class="albumNum">3</td>
+              <td class="albuumSong">
+                <i class="fa-solid fa-caret-right"></i>
+                <i class="fa-solid fa-pause"></i>
+                <span>내사람</span>
+                <audio src="./content/sgwannabe.mp4"></audio>
+              </td>
+              <td class="albumArtist">SG워너비</td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" name="check01" id="check04" />
+              </td>
+              <td class="albumNum">4</td>
+              <td class="albuumSong">
+                <i class="fa-solid fa-caret-right"></i>
+                <i class="fa-solid fa-pause"></i>
+                <span>Love Love Love</span>
+                <audio src="./content/lovelovelove.mp4"></audio>
+              </td>
+              <td class="albumArtist">에픽하이</td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" name="check05" id="check05" />
+              </td>
+              <td class="albumNum">5</td>
+              <td class="albuumSong">
+                <i class="fa-solid fa-caret-right"></i>
+                <i class="fa-solid fa-pause"></i>
+                <span>애인있어요</span>
+                <audio src="./content/friend.mp4"></audio>
+              </td>
+              <td class="albumArtist">이은미</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="jukeboxFooter">
+          <button>듣기</button>
+          <div>| 1 |</div>
+          <div>
+            <button>이동</button>
+            <button>배경음악등록</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

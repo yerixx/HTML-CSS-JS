@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./home.css" />
+    <script defer src="./home.js"></script>
+    <title>home</title>
+  </head>
+  <body>
+    <article class="contents">
+      <div class="contentTop">
+        <div class="contentMiniroom">
+          <div>
+            <span>미니라이프</span>
+            <span>|</span>
+            <span>미니룸</span>
+            <span>|</span>
+            <span>스토리룸</span>
+          </div>
+          <div>
+            <img src="../img/miniroom.jpg" alt="miniroom" />
+          </div>
+        </div>
+        <div class="contentIlchon">
+          <form action="http://127.0.0.1:5500" method="get">
+            <label for="message"
+              ><b>일촌평</b>
+              <i class="fas fa-gear"></i>
+              <input
+                type="text"
+                name="message"
+                id="message"
+                placeholder="일촌과 나누고 싶은 이야기를 남겨보세요~!"
+              />
+            </label>
+            <input type="button" value="확인" />
+          </form>
+          <div class="ilchonText">
+            <ul>
+              <li>
+                <span>왔다감~♥ 반모하쟝~>3< </span>
+                <span>(우리우정 forever <b>김아라</b>) </span>
+                <button>지우기</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+  </body>
+</html>

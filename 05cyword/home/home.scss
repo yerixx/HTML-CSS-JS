@@ -1,0 +1,117 @@
+// reset
+@import "./reset.scss";
+
+// variable
+$theme-color: #55b2e4;
+$point-color: #fa822e;
+// common
+// iframe을 100%로 쓰려면
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+// home
+.contents {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 40px;
+  padding: 40px 60px 50px 40px;
+  .contentTop {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    .contentMiniroom {
+      display: flex;
+      flex-direction: column;
+      div:nth-child(1) {
+        padding: 0 20px;
+        span {
+          font-size: 1.2rem;
+          cursor: pointer;
+          &:nth-child(3) {
+            font-weight: bold;
+            color: $theme-color;
+          }
+        }
+      }
+      div:nth-child(2) {
+        padding: 0 20px;
+        width: 800px;
+        img {
+          width: 100%;
+          border: 1px solid #999;
+        }
+      }
+    }
+    .contentIlchon {
+      width: 760px;
+      margin: 20px 20px;
+      form {
+        background: #eee;
+        border: 1px solid #ddd;
+        padding: 12px 10px;
+        label {
+          b {
+            color: $theme-color;
+          }
+          i {
+            font-size: 0.8rem;
+            color: #999;
+            cursor: pointer;
+          }
+          input[type="text"] {
+            width: 630px;
+            height: 24px;
+            padding: 0 5px;
+            &::placeholder {
+              padding: 0 5px;
+              font-size: 0.9rem;
+              color: #bbb;
+            }
+            &:focus {
+              outline: none;
+              padding: 0 5px;
+            }
+          }
+        }
+        input[type="button"] {
+          width: 40px;
+          height: 24px;
+          background: #fff;
+          border: none;
+          border: 1px solid #999;
+          border-radius: 2px;
+          cursor: pointer;
+        }
+      }
+
+      .ilchonText {
+        width: 100%;
+
+        li {
+          width: 100%;
+          padding: 10px 0;
+          border-bottom: 1px dotted #ddd;
+          b {
+            color: $theme-color;
+            cursor: pointer;
+          }
+          button {
+            border: none;
+            background: none;
+            color: #999;
+            font-size: 0.9rem;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
