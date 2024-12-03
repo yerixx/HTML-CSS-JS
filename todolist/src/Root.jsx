@@ -1,89 +1,110 @@
-import React, { useReducer, useRef, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import Title from "./components/Title";
 import Globalstyle, { Wrapper } from "./style/Globalstyle";
 import { Info } from "./style/StyleContainer";
 import TodoList from "./components/TodoList";
 import TabsMenu from "./components/TabsMenu";
 import CreateTodo from "./components/CreateTodo";
+import reducer from "./reducers/reducer";
+
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+  query,
+  orderBy,
+} from "firebase/firestore";
+import { db } from "./firebase-config";
 
 export const TodoContext = React.createContext();
 
-const mockdata = [
-  {
-    id: 0,
-    isDone: false,
-    title: "리액트 공부하기",
-    date: new Date().toLocaleDateString(),
-  },
-  {
-    id: 1,
-    isDone: false,
-    title: "스크립트 공부하기",
-    date: new Date().toLocaleDateString(),
-  },
-  {
-    id: 2,
-    isDone: false,
-    title: "공부하기",
-    date: new Date().toLocaleDateString(),
-  },
-  {
-    id: 3,
-    isDone: false,
-    title: "집가서 공부하기",
-    date: new Date().toLocaleDateString(),
-  },
-];
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "CREATE": {
-      return [action.newItem, ...state];
-    }
-    case "ISDONE": {
-      return state.map((it) =>
-        it.id === action.targetId ? { ...it, isDone: !it.isDone } : it
-      );
-    }
-    case "EDIT": {
-      return state.map((it) =>
-        it.id === action.targetId ? { ...it, title: action.newTitle } : it
-      );
-    }
-    case "DELETE": {
-      return state.filter((it) => it.id !== action.targetId);
-    }
-    default:
-      return state;
-  }
-};
-
 const Root = () => {
-  const [todo, dispatch] = useReducer(reducer, mockdata);
+  const [state, dispatch] = useReducer(reducer, []);
   const [selectedTab, setSelectedTab] = useState(0);
-  const idRef = useRef(4);
 
-  const handleAddTodo = (title) => {
-    if (title.trim() === "") return alert("할 일을 입력해주세요");
-    const newItem = {
-      id: idRef.current,
-      title,
-      date: new Date().toLocaleDateString(),
+  // Firestore에서 데이터 가져오기
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const q = query(collection(db, "create"), orderBy("date", "desc"));
+        const querySnapshot = await getDocs(q);
+        const data = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+          date: new Date(doc.data().date).toLocaleDateString(), // UI용 포맷
+        }));
+        dispatch({ type: "SET_DATA", data });
+      } catch (err) {
+        console.error("Error getting documents: ", err);
+      }
     };
-    idRef.current += 1;
-    dispatch({ type: "CREATE", newItem });
+    fetchData();
+  }, []);
+
+  const handleCreate = async (title) => {
+    if (title.trim() === "") return alert("할 일을 입력해주세요");
+
+    const now = new Date();
+    const newItem = {
+      title,
+      isDone: false,
+      date: now.toISOString(), // Firestore에는 ISO 형식으로 저장
+    };
+
+    try {
+      const docRef = await addDoc(collection(db, "create"), newItem);
+      newItem.id = docRef.id;
+
+      // UI 상태에서는 toLocaleDateString으로 변환
+      dispatch({
+        type: "CREATE",
+        newItem: {
+          ...newItem,
+          date: now.toLocaleDateString(), // UI용 포맷
+        },
+      });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const handleEditTodo = (targetId, newTitle) => {
-    dispatch({ type: "EDIT", targetId, newTitle });
+  // 할 일 수정
+  const handleEditTodo = async (targetId, newTitle) => {
+    try {
+      const docRef = doc(db, "create", targetId);
+      await updateDoc(docRef, { title: newTitle }); // Firestore에서 업데이트
+      dispatch({ type: "EDIT", targetId, newTitle });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const handleToggleDone = (targetId) => {
-    dispatch({ type: "ISDONE", targetId });
+  // 할 일 완료 상태 토글
+  const handleToggleDone = async (targetId) => {
+    try {
+      const targetTodo = state.find((todo) => todo.id === targetId);
+      if (!targetTodo) return;
+
+      const docRef = doc(db, "create", targetId);
+      await updateDoc(docRef, { isDone: !targetTodo.isDone }); // Firestore에서 업데이트
+      dispatch({ type: "ISDONE", targetId });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const handleDeleteTodo = (targetId) => {
-    dispatch({ type: "DELETE", targetId });
+  // 할 일 삭제
+  const handleDeleteTodo = async (targetId) => {
+    try {
+      const docRef = doc(db, "create", targetId);
+      await deleteDoc(docRef); // Firestore에서 삭제
+      dispatch({ type: "DELETE", targetId });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -92,9 +113,9 @@ const Root = () => {
       <Title />
       <TodoContext.Provider
         value={{
-          todo,
+          todo: state,
           dispatch,
-          handleAddTodo,
+          handleCreate,
           handleEditTodo,
           handleDeleteTodo,
           handleToggleDone,

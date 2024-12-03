@@ -17,7 +17,7 @@ a{
 }
 input{    
   width: 100%;
- background: inherit;
+  background: inherit;
   border: none;
   &:focus{
     outline:none;

@@ -4,7 +4,7 @@ import { TodoContext } from "../Root";
 import { FaPlus } from "react-icons/fa6";
 
 const CreateTodo = () => {
-  const { handleAddTodo } = useContext(TodoContext);
+  const { handleCreate } = useContext(TodoContext);
   const [title, setTitle] = useState("");
 
   const onSubmit = (e) => {
@@ -13,7 +13,7 @@ const CreateTodo = () => {
       alert("할일을 입력해 주세요");
     }
     if (title.trim()) {
-      handleAddTodo(title);
+      handleCreate(title);
       setTitle("");
     }
   };

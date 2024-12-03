@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
-
 //common
 export const Wrapper = styled.main`
   display: flex;
@@ -34,7 +32,7 @@ export const TitleContainer = styled.section`
 `;
 
 //TabContainer
-export const TabContainer = styled(motion.section)`
+export const TabContainer = styled.section`
   position: relative;
   .postBtn {
     width: 50%;

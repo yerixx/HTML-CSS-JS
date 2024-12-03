@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { Inner, TabContainer } from "../style/StyleContainer";
-import { motion } from "framer-motion";
 import { TodoContext } from "../Root";
+import { motion } from "motion/react";
+
+// import * as frameemotion from "framer-motion";
 
 const TabsMenu = () => {
   const { selectedTab, setSelectedTab } = useContext(TodoContext);
